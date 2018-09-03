@@ -1,1 +1,1 @@
-"# AlgData-Oblig1" 
+# AlgData-Oblig1
