@@ -2,8 +2,6 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.NoSuchElementException;
-
 import org.junit.jupiter.api.Test;
 
 import code.Oblig1;
@@ -31,13 +29,13 @@ class AmountOfUniqueSortedTests {
     @Test
     void negativeNumbersTest() {
         int[] arrayOfNegativeIntegers = {-20, -20, -14, -13, -13, -13, -3};
-        assertEquals(4, Oblig1.amountOfSorted(arrayOfNegativeIntegers));
+        assertEquals(4, Oblig1.amountOfUniqueSorted(arrayOfNegativeIntegers));
     }
     
     @Test
     void mixedNegativeAndPositiveIntegersTest() {
         int[] arrayOfIntegers = {-20, -14, -10, 0, 19, 20};
-        assertEquals(6, Oblig1.amountOfSorted(arrayOfIntegers));
+        assertEquals(6, Oblig1.amountOfUniqueSorted(arrayOfIntegers));
     }
     
     @Test
