@@ -57,6 +57,24 @@ public class Oblig1 {
         return amountOfUniqueNumbers;
     }
     
+    public static int amountOfUniqueUnsorted(int[] arrayOfNumbers) {
+        int amountOfUniqueNumbers = 0;
+        for (int i = 0; i < arrayOfNumbers.length; i++) {
+            boolean unique = true;
+            for (int j = 0; j < i; j++) {
+                if (arrayOfNumbers[i] == arrayOfNumbers[j]) {
+                    unique = false;
+                    break;
+                }
+            }
+            if (unique) {
+                amountOfUniqueNumbers++;
+            }
+        }
+        
+        return amountOfUniqueNumbers;
+    }
+    
     private static void swap(int[] arrayOfIntegers, int indexA, int indexB) {
         int temporaryHolderValue = arrayOfIntegers[indexA];
         arrayOfIntegers[indexA] = arrayOfIntegers[indexB];
