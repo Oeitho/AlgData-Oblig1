@@ -40,6 +40,23 @@ public class Oblig1 {
         return invertions;
     }
     
+    public static int amountOfUniqueSorted(int[] arrayOfNumbers) {
+        if (arrayOfNumbers.length < 1) 
+            return 0;
+        
+        if (invertions(arrayOfNumbers) > 0)
+            throw new IllegalStateException("Supplied array of integers have to be sorted");
+        
+        int amountOfUniqueNumbers = 1;
+        for (int i = 1; i < arrayOfNumbers.length; i++) {
+            if (arrayOfNumbers[i] > arrayOfNumbers[i - 1]) {
+                amountOfUniqueNumbers++;
+            }
+        }
+        
+        return amountOfUniqueNumbers;
+    }
+    
     private static void swap(int[] arrayOfIntegers, int indexA, int indexB) {
         int temporaryHolderValue = arrayOfIntegers[indexA];
         arrayOfIntegers[indexA] = arrayOfIntegers[indexB];
