@@ -18,15 +18,15 @@ class maxTest {
     }
     
     @Test
-    void arrayWithOneElementTest() {
-        int[] arrayWithOneElement = {1};
-        assertEquals(1, Oblig1.max(arrayWithOneElement));
-    }
-    
-    @Test
     void arrayPointingToNullTest() {
         int[] arrayPointingToNull = null;
         assertThrows(NullPointerException.class, () -> Oblig1.max(arrayPointingToNull));
+    }
+    
+    @Test
+    void arrayWithOneElementTest() {
+        int[] arrayWithOneElement = {1};
+        assertEquals(1, Oblig1.max(arrayWithOneElement));
     }
     
     @Test
