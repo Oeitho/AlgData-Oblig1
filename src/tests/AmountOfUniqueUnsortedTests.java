@@ -41,7 +41,7 @@ class AmountOfUniqueUnSortedTests {
     @Test
     void nonSortedArrayTest() {
         int[] arrayOfNotSortedIntegers = {1, 5, 8, 7, 30};
-        assertEquals(5, Oblig1.amountOfUniqueUnorted(arrayOfNotSortedIntegers));
+        assertEquals(5, Oblig1.amountOfUniqueUnsorted(arrayOfNotSortedIntegers));
     }
 
 }
