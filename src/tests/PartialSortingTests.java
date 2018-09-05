@@ -1,10 +1,7 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Test;
 
