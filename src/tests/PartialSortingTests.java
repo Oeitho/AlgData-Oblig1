@@ -42,13 +42,13 @@ class PartialSortingTests {
     @Test
     void mixedNegativeAndPositiveIntegersTest() {
         int[] arrayOfIntegers = {-20, 20, 14, -1, 0, 100};
-        assertArrayEquals(new int[] {-1, -20, -1, 0, 14, 20, 100}, Oblig1.partialSort(arrayOfIntegers));
+        assertArrayEquals(new int[] {-1, -20, 0, 14, 20, 100}, Oblig1.partialSort(arrayOfIntegers));
     }
     
     @Test
     void repeatedNubersInArrayTest() {
         int[] arrayOfIntegers = {7, 8, 7, 9, 2, 2, 0, 2, 1, 8};
-        assertArrayEquals(new int[] {-1, 7, 7, 9, 0, 2, 2, 2, 8}, Oblig1.partialSort(arrayOfIntegers));
+        assertArrayEquals(new int[] {1, 7, 7, 9, 0, 2, 2, 2, 8, 8}, Oblig1.partialSort(arrayOfIntegers));
     }
     
     @Test
