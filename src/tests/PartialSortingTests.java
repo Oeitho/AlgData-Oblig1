@@ -15,7 +15,7 @@ class PartialSortingTests {
     @Test
     void emptyArrayTest() {
         int[] emptyArray = {};
-        assertArrayEquals(new int[] {}, Oblig1.partialSort());
+        assertArrayEquals(new int[] {}, Oblig1.partialSort(emptyArray));
     }
     
     @Test
