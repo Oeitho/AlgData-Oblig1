@@ -6,33 +6,33 @@ public class Oblig1 {
     
     private Oblig1() {}
     
-    public static int max(int[] arrayOfIntegers) {
-        int arrayLength = arrayOfIntegers.length;
+    public static int max(int[] arrayOfNumbers) {
+        int arrayLength = arrayOfNumbers.length;
         int lastElementPosition = arrayLength - 1;
         
         if (arrayLength < 1)
             throw new NoSuchElementException("The provided array of integers is empty!");
         
         for (int i = 0; i < lastElementPosition; i++) {
-            if (arrayOfIntegers[i] > arrayOfIntegers[i + 1]) {
-                swap(arrayOfIntegers, i, i + 1);
+            if (arrayOfNumbers[i] > arrayOfNumbers[i + 1]) {
+                swap(arrayOfNumbers, i, i + 1);
             }
         }
         
-        return arrayOfIntegers[lastElementPosition];
+        return arrayOfNumbers[lastElementPosition];
     }
     
-    public static int invertions(int[] arrayOfIntegers) {
+    public static int invertions(int[] arrayOfNumbers) {
         int invertions = 0;
-        int arrayLength = arrayOfIntegers.length;
+        int arrayLength = arrayOfNumbers.length;
         int lastElementPosition = arrayLength - 1;
         
         if (arrayLength < 1)
             throw new NoSuchElementException("The provided array of integers is empty!");
         
         for (int i = 0; i < lastElementPosition; i++) {
-            if (arrayOfIntegers[i] > arrayOfIntegers[i + 1]) {
-                swap(arrayOfIntegers, i, i + 1);
+            if (arrayOfNumbers[i] > arrayOfNumbers[i + 1]) {
+                swap(arrayOfNumbers, i, i + 1);
                 invertions++;
             }
         }
@@ -75,10 +75,54 @@ public class Oblig1 {
         return amountOfUniqueNumbers;
     }
     
-    private static void swap(int[] arrayOfIntegers, int indexA, int indexB) {
-        int temporaryHolderValue = arrayOfIntegers[indexA];
-        arrayOfIntegers[indexA] = arrayOfIntegers[indexB];
-        arrayOfIntegers[indexB] = temporaryHolderValue;
+    public static int[] partialSort(int[] arrayOfNumbers) {
+        int indexOfFirstEvenNumber = arrayOfNumbers.length;
+        int arrayIterator = 0;
+        
+        while (indexOfFirstEvenNumber > arrayIterator) {
+            if (arrayOfNumbers[arrayIterator] % 2 == 0) {
+                swap(arrayOfNumbers, arrayIterator, --indexOfFirstEvenNumber);
+            } else {
+                arrayIterator++;
+            }
+        }
+        
+        int indexOfLastOddNumber = indexOfFirstEvenNumber - 1;
+        
+        quickSort(arrayOfNumbers, 0, indexOfLastOddNumber);
+        quickSort(arrayOfNumbers, indexOfFirstEvenNumber, arrayOfNumbers.length - 1);
+ 
+        return arrayOfNumbers;
+    }
+    
+    private static void quickSort(int[] arrayOfNumbers, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        
+        int indexOfPivotAfterPartition = partition(arrayOfNumbers, left, right);
+        quickSort(arrayOfNumbers, left, indexOfPivotAfterPartition - 1);
+        quickSort(arrayOfNumbers, indexOfPivotAfterPartition + 1, right);
+    }
+    
+    private static int partition(int[] arrayOfNumbers, int left, int right) {
+        int pivot = arrayOfNumbers[right];
+        
+        for (int i = left; i < right; i++) {
+            if (arrayOfNumbers[i] < pivot) {
+                swap(arrayOfNumbers, left, i);
+                left++;
+            }
+        }
+        
+        swap(arrayOfNumbers, left, right);
+        return left;
+    }
+    
+    private static void swap(int[] arrayOfNumbers, int indexA, int indexB) {
+        int temporaryHolderValue = arrayOfNumbers[indexA];
+        arrayOfNumbers[indexA] = arrayOfNumbers[indexB];
+        arrayOfNumbers[indexB] = temporaryHolderValue;
     }
     
 }
