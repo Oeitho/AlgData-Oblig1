@@ -11,56 +11,39 @@ class RotationTests {
 
     @Test
     void emptyArrayTest() {
-        int[] emptyArray = {};
-        assertArrayEquals(new int[] {}, Oblig1.rotate(emptyArray));
+        char[] emptyArray = {};
+        assertArrayEquals(new char[] {}, Oblig1.rotate(emptyArray));
     }
     
     @Test
     void arrayPointingToNullTest() {
-        int[] arrayPointingToNull = null;
+        char[] arrayPointingToNull = null;
         assertThrows(NullPointerException.class, () -> Oblig1.rotate(arrayPointingToNull));
     }
     
     @Test
     void arrayWithOneOddNumberTest() {
-        int[] arrayWithOneElement = {1};
-        assertArrayEquals(new int[] {1}, Oblig1.rotate(arrayWithOneElement));
+        char[] arrayWithOneElement = {'A'};
+        assertArrayEquals(new char[] {'A'}, Oblig1.rotate(arrayWithOneElement));
     }
     
     @Test
     void arrayWithOneEvenNumberTest() {
-        int[] arrayWithOneElement = {2};
-        assertArrayEquals(new int[] {2}, Oblig1.rotate(arrayWithOneElement));
+        char[] arrayWithOneElement = {'B'};
+        assertArrayEquals(new char[] {'B'}, Oblig1.rotate(arrayWithOneElement));
     }
     
     @Test
-    void negativeNumbersTest() {
-        int[] arrayOfNegativeIntegers = {-20, -15, -31, -1, -19};
-        assertArrayEquals(new int[] {-19, -20, -15, -31, -1}, Oblig1.rotate(arrayOfNegativeIntegers));
+    void repeatedNumbersInArrayTest() {
+        char[] arrayOfIntegers = {7, 8, 7, 9, 2, 2, 0, 2, 1, 8};
+        assertArrayEquals(new char[] {8, 7, 8, 7, 9, 2, 2, 0, 2, 1}, Oblig1.rotate(arrayOfIntegers));
     }
     
     @Test
-    void mixedNegativeAndPositiveIntegersTest() {
-        int[] arrayOfIntegers = {-20, 20, 14, -1, 0, 100};
-        assertArrayEquals(new int[] {100, -20, 20, 14, -1, 0}, Oblig1.rotate(arrayOfIntegers));
+    void repeatedCharsInArrayTest() {
+        char[] arrayOfIntegers = {'A', 'B', 'A', 'A', 'Z', ',', 'O', 'Z'};
+        assertArrayEquals(new char[] {'Z', 'A', 'B', 'A', 'A', 'Z', ',', 'O'}, Oblig1.rotate(arrayOfIntegers));
     }
     
-    @Test
-    void repeatedNubersInArrayTest() {
-        int[] arrayOfIntegers = {7, 8, 7, 9, 2, 2, 0, 2, 1, 8};
-        assertArrayEquals(new int[] {8, 7, 8, 7, 9, 2, 2, 0, 2, 1}, Oblig1.rotate(arrayOfIntegers));
-    }
-    
-    @Test
-    void onlyOddNumbersTest() {
-        int[] arrayOfIntegers = {3, 5, 1, 19, 21, 7};
-        assertArrayEquals(new int[] {7, 3, 5, 1, 19, 21}, Oblig1.rotate(arrayOfIntegers));
-    }
-    
-    @Test
-    void onlyEvenNumbersTest() {
-        int[] arrayOfIntegers = {100, 34, 14, 6, 90};
-        assertArrayEquals(new int[] {90, 100, 34, 14, 6}, Oblig1.rotate(arrayOfIntegers));
-    }
 
 }
