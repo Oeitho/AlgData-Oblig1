@@ -95,21 +95,21 @@ public class Oblig1 {
         return arrayOfNumbers;
     }
     
-    public static int[] rotate(int[] arrayOfNumbers) {
-        if (arrayOfNumbers.length <= 1) {
-            return arrayOfNumbers;
+    public static char[] rotate(char[] arrayOfChars) {
+        if (arrayOfChars.length <= 1) {
+            return arrayOfChars;
         }
 
-        int indexOfLastValue = arrayOfNumbers.length - 1;
-        int lastValueInArray = arrayOfNumbers[indexOfLastValue];
+        int indexOfLastValue = arrayOfChars.length - 1;
+        char lastValueInArray = arrayOfChars[indexOfLastValue];
         
         for (int i = indexOfLastValue; i >= 1; i--) {
-            arrayOfNumbers[i] = arrayOfNumbers[i - 1];
+            arrayOfChars[i] = arrayOfChars[i - 1];
         }
         
-        arrayOfNumbers[0] = lastValueInArray;
+        arrayOfChars[0] = lastValueInArray;
         
-        return arrayOfNumbers;
+        return arrayOfChars;
     }
     
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {

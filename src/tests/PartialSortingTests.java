@@ -46,7 +46,7 @@ class PartialSortingTests {
     }
     
     @Test
-    void repeatedNubersInArrayTest() {
+    void repeatedNumbersInArrayTest() {
         int[] arrayOfIntegers = {7, 8, 7, 9, 2, 2, 0, 2, 1, 8};
         assertArrayEquals(new int[] {1, 7, 7, 9, 0, 2, 2, 2, 8, 8}, Oblig1.partialSort(arrayOfIntegers));
     }
