@@ -36,31 +36,31 @@ class RotationTests {
     @Test
     void negativeNumbersTest() {
         int[] arrayOfNegativeIntegers = {-20, -15, -31, -1, -19};
-        assertArrayEquals(new int[] {-15, -31, -1, -19, -20}, Oblig1.rotate(arrayOfNegativeIntegers));
+        assertArrayEquals(new int[] {-19, -20, -15, -31, -1}, Oblig1.rotate(arrayOfNegativeIntegers));
     }
     
     @Test
     void mixedNegativeAndPositiveIntegersTest() {
         int[] arrayOfIntegers = {-20, 20, 14, -1, 0, 100};
-        assertArrayEquals(new int[] {20, 14, -1, 0, 100, -20}, Oblig1.rotate(arrayOfIntegers));
+        assertArrayEquals(new int[] {100, -20, 20, 14, -1, 0}, Oblig1.rotate(arrayOfIntegers));
     }
     
     @Test
     void repeatedNubersInArrayTest() {
         int[] arrayOfIntegers = {7, 8, 7, 9, 2, 2, 0, 2, 1, 8};
-        assertArrayEquals(new int[] {8, 7, 9, 2, 2, 0, 2, 1, 8, 7}, Oblig1.rotate(arrayOfIntegers));
+        assertArrayEquals(new int[] {8, 7, 8, 7, 9, 2, 2, 0, 2, 1}, Oblig1.rotate(arrayOfIntegers));
     }
     
     @Test
     void onlyOddNumbersTest() {
         int[] arrayOfIntegers = {3, 5, 1, 19, 21, 7};
-        assertArrayEquals(new int[] {5, 1, 19, 21, 7, 3}, Oblig1.rotate(arrayOfIntegers));
+        assertArrayEquals(new int[] {7, 3, 5, 1, 19, 21}, Oblig1.rotate(arrayOfIntegers));
     }
     
     @Test
     void onlyEvenNumbersTest() {
         int[] arrayOfIntegers = {100, 34, 14, 6, 90};
-        assertArrayEquals(new int[] {34, 14, 6, 90, 100}, Oblig1.rotate(arrayOfIntegers));
+        assertArrayEquals(new int[] {90, 100, 34, 14, 6}, Oblig1.rotate(arrayOfIntegers));
     }
 
 }

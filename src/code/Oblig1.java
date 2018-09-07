@@ -95,6 +95,23 @@ public class Oblig1 {
         return arrayOfNumbers;
     }
     
+    public static int[] rotate(int[] arrayOfNumbers) {
+        if (arrayOfNumbers.length <= 1) {
+            return arrayOfNumbers;
+        }
+
+        int indexOfLastValue = arrayOfNumbers.length - 1;
+        int lastValueInArray = arrayOfNumbers[indexOfLastValue];
+        
+        for (int i = indexOfLastValue; i >= 1; i--) {
+            arrayOfNumbers[i] = arrayOfNumbers[i - 1];
+        }
+        
+        arrayOfNumbers[0] = lastValueInArray;
+        
+        return arrayOfNumbers;
+    }
+    
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {
         if (left >= right) {
             return;
