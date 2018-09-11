@@ -112,7 +112,7 @@ public class Oblig1 {
         
         return arrayOfChars;
     }
-    
+  
     public static char[] rotate(char[] arrayOfChars, int rotations) {
         int arrayLength = arrayOfChars.length;
         if (arrayLength <= 1) {
@@ -141,6 +141,48 @@ public class Oblig1 {
         }
         
         return arrayOfChars;
+    }
+    
+    public static String merge(String firstString, String secondString) {
+        int totalLength = firstString.length() + secondString.length();
+        
+        char[] result = new char[totalLength];
+        int firstStringIndexIterator = 0;
+        int secondStringIndexIterator = 0;
+        int indexIterator = 0;
+        
+        while (indexIterator < totalLength) {
+            if (firstStringIndexIterator < firstString.length()) {
+                result[indexIterator++] = firstString.charAt(firstStringIndexIterator++);
+            }
+            if (secondStringIndexIterator < secondString.length()) {
+                result[indexIterator++] = secondString.charAt(secondStringIndexIterator++);
+            }
+        }
+        
+        return new String(result);
+    }
+    
+    public static String merge(String... strings) {
+        int totalArrayLength = 0;
+        
+        for (String string: strings) {
+            totalArrayLength += string.length();
+        }
+        
+        char[] result = new char[totalArrayLength];
+        int[] stringIndexIterators = new int[strings.length];
+        int indexIterator = 0;
+        
+        while (indexIterator < totalArrayLength) {
+            for (int i = 0; i < strings.length; i++) {
+                if (stringIndexIterators[i] < strings[i].length()) {
+                    result[indexIterator++] = strings[i].charAt(stringIndexIterators[i]++);
+                }
+            }
+        }
+        
+        return new String(result);
     }
     
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {
