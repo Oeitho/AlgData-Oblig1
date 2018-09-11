@@ -1,5 +1,6 @@
 package code;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -108,6 +109,36 @@ public class Oblig1 {
         }
         
         arrayOfChars[0] = lastValueInArray;
+        
+        return arrayOfChars;
+    }
+  
+    public static char[] rotate(char[] arrayOfChars, int rotations) {
+        int arrayLength = arrayOfChars.length;
+        if (arrayLength <= 1) {
+            return arrayOfChars;
+        }
+        
+        rotations = Math.floorMod(rotations, arrayLength);
+        
+        int indexOfLastValue = arrayLength - 1;
+        char[] lastValuesOfArray = new char[rotations];
+        
+        for (int i = 0; i < rotations; i++) {
+            lastValuesOfArray[i] = arrayOfChars[indexOfLastValue - i];
+        }
+        
+        int arrayIterator = indexOfLastValue;
+        
+        while (arrayIterator >= rotations) {
+            arrayOfChars[arrayIterator] = arrayOfChars[arrayIterator - rotations];
+            arrayIterator--;
+        }
+        
+        while (arrayIterator >= 0) {
+            arrayOfChars[arrayIterator] = lastValuesOfArray[rotations - (arrayIterator + 1)];
+            arrayIterator--;
+        }
         
         return arrayOfChars;
     }
