@@ -185,6 +185,33 @@ public class Oblig1 {
         return new String(result);
     }
     
+    public static int[] indexSort(int[] arrayOfNumbers) {
+        int arrayLength = arrayOfNumbers.length;
+        int lastElementPosition = arrayLength - 1;
+        
+        if (arrayLength < 1)
+            throw new NoSuchElementException("The provided array of integers is empty!");
+        
+        int[] copyOfInputArray = Arrays.copyOf(arrayOfNumbers, arrayLength);
+        int[] sortedIndeces = new int[arrayOfNumbers.length];
+        
+        for (int i = 0; i < arrayLength; i++) {
+            sortedIndeces[i] = i;
+        }
+        
+        for (int i = 0; i < arrayLength; i++) {
+            for (int j = 0; j < lastElementPosition ; j++) {
+                if (copyOfInputArray[j] > copyOfInputArray[j + 1]) {
+                    swap(copyOfInputArray, j, j + 1);
+                    swap(sortedIndeces, j, j + 1);
+                }
+            }
+        }
+        
+        
+        return sortedIndeces;
+    }
+    
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {
         if (left >= right) {
             return;
