@@ -267,7 +267,7 @@ public class Oblig1 {
             if (firstString.charAt(0) == secondString.charAt(i)) {
                 String newFirstString = firstString.substring(1);
                 String newSecondString = secondString.substring(0, i) + secondString.substring(i);
-                return stringContains(newFirstString, newSecondString);
+                return inneholdt(newFirstString, newSecondString);
             }
         }
         
