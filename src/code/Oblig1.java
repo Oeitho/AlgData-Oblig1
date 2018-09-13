@@ -212,6 +212,36 @@ public class Oblig1 {
         return sortedIndeces;
     }
     
+    public static int[] threeSmallest(int[] arrayOfNumbers) {
+        int lengthOfArray = arrayOfNumbers.length;
+        if (lengthOfArray < 3)
+            throw new NoSuchElementException("Input array contains less than 3 numbers");
+        
+        int[] indexOfThreeSmallestNumbers = indexSort(Arrays.copyOf(arrayOfNumbers, 3));
+        int smallest = indexOfThreeSmallestNumbers[0];
+        int secondSmallest = indexOfThreeSmallestNumbers[1];
+        int thirdSmallest= indexOfThreeSmallestNumbers[2];
+        
+        for (int i = 3; i < lengthOfArray; i++) {
+            if (arrayOfNumbers[i] < arrayOfNumbers[thirdSmallest]) {
+                if (arrayOfNumbers[i] < arrayOfNumbers[secondSmallest]) {
+                    if (arrayOfNumbers[i] < arrayOfNumbers[smallest]) {
+                        thirdSmallest = secondSmallest;
+                        secondSmallest = smallest;
+                        smallest = i;
+                    } else {
+                        thirdSmallest = secondSmallest;
+                        secondSmallest = i;
+                    }
+                } else {
+                    thirdSmallest = i;
+                }
+            }
+        }
+        
+        return new int[] {smallest, secondSmallest, thirdSmallest};
+    }
+    
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {
         if (left >= right) {
             return;
