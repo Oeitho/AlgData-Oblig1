@@ -2,8 +2,6 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.NoSuchElementException;
-
 import code.Oblig1;
 
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,7 @@ class IndexSortingTests {
     @Test
     void emptyArrayTest() {
         int[] emptyArray = {};
-        assertThrows(NoSuchElementException.class, () -> { Oblig1.indekssortering(emptyArray); });
+        assertArrayEquals(new int[] {}, Oblig1.indekssortering(emptyArray));
     }
     
     @Test

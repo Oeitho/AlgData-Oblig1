@@ -203,7 +203,7 @@ public class Oblig1 {
         int lastElementPosition = arrayLength - 1;
         
         if (arrayLength < 1)
-            throw new NoSuchElementException("The provided array of integers is empty!");
+            return new int[] {};
         
         int[] copyOfInputArray = Arrays.copyOf(arrayOfNumbers, arrayLength);
         int[] sortedIndeces = new int[arrayOfNumbers.length];
@@ -257,23 +257,32 @@ public class Oblig1 {
     }
     
   //public static boolean stringContains(String firstString, String secondString) {
-    public static boolean inneholdt(String firstString, String secondString) {
-        if ("".equals(firstString))
+    public static boolean inneholdt(String needle, String hayStack) {
+        if ("".equals(needle))
             return true;
-        if ("".equals(secondString))
+        if ("".equals(hayStack))
             return false;
         
-        for (int i = 0; i < secondString.length(); i++) {
-            if (firstString.charAt(0) == secondString.charAt(i)) {
-                String newFirstString = firstString.substring(1);
-                String newSecondString = secondString.substring(0, i) + secondString.substring(i);
-                return inneholdt(newFirstString, newSecondString);
+        char[] needleCharArray = needle.toCharArray();
+        char[] hayStackCharArray = hayStack.toCharArray();
+        
+        for (int i = 0; i < needleCharArray.length; i++) {
+            for (int j = i; j < hayStackCharArray.length; j++) {
+                if (needleCharArray[i] == hayStackCharArray[j]) {
+                    swap(hayStackCharArray, i, j);
+                    break;
+                }
             }
         }
         
-        return false;
+        for (int i = 0; i < needleCharArray.length; i++) {
+            if (needleCharArray[i] != hayStackCharArray[i])
+                return false;
+        }
+        
+        return true;
     }
-    
+
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {
         if (left >= right) {
             return;
@@ -302,6 +311,12 @@ public class Oblig1 {
         int temporaryHolderValue = arrayOfNumbers[indexA];
         arrayOfNumbers[indexA] = arrayOfNumbers[indexB];
         arrayOfNumbers[indexB] = temporaryHolderValue;
+    }
+    
+    private static void swap(char[] arrayOfChars, int indexA, int indexB) {
+        char temporaryHolderValue = arrayOfChars[indexA];
+        arrayOfChars[indexA] = arrayOfChars[indexB];
+        arrayOfChars[indexB] = temporaryHolderValue;
     }
     
 }

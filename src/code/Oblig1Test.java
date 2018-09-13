@@ -29,8 +29,8 @@ public class Oblig1Test {
         antallFeil += oppgave6();
         antallFeil += oppgave7();
         antallFeil += oppgave8();
-        //antallFeil += oppgave9();
-        //antallFeil += oppgave10();
+        antallFeil += oppgave9();
+        antallFeil += oppgave10();
 
         if (antallFeil == 0) {
             System.out.println("Gratulerer!! Du passerte testen!");
@@ -905,14 +905,14 @@ public class Oblig1Test {
             antallFeil++;
         }
 
-        b = Oblig1.inneholdt("Ã˜Ã…Ã…Ã˜", "Ã˜Ã˜Ã…Ã˜Ã˜");
+        b = Oblig1.inneholdt("ØÅÅØ", "ØØÅØØ");
         if (b != false) {
             System.out.println
                     ("Oppgave 10: l) Svaret skal bli lik false her!");
             antallFeil++;
         }
 
-        b = Oblig1.inneholdt("Ã˜Ã…Ã…Ã˜", "Ã…Ã˜Ã˜Ã…Ã˜");
+        b = Oblig1.inneholdt("ØÅÅØ", "ÅØØÅØ");
         if (b == false) {
             System.out.println
                     ("Oppgave 10: m) Svaret skal bli lik true her!");
