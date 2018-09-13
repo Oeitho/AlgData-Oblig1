@@ -11,73 +11,73 @@ class MergeStringsTests {
     @Test
     void firstStringPointingToNullTest() {
         String[] strings = {null, "An example string"};
-        assertThrows(NullPointerException.class, () -> { Oblig1.merge(strings); });
+        assertThrows(NullPointerException.class, () -> { Oblig1.flett(strings); });
     }
     
     @Test
     void secondStringPointingToNullTest() {
         String[] strings = {"Example string", null, "Last string"};
-        assertThrows(NullPointerException.class, () -> { Oblig1.merge(strings); });
+        assertThrows(NullPointerException.class, () -> { Oblig1.flett(strings); });
     }
     
     @Test
     void multipleStringsPointingToNull() {
         String[] strings = {null, "Example string", null, null, "Other string", null};
-        assertThrows(NullPointerException.class, () -> { Oblig1.merge(strings); });
+        assertThrows(NullPointerException.class, () -> { Oblig1.flett(strings); });
     }
     
     @Test
     void allStringsPointingToNullTest() {
         String[] strings = {null, null, null, null};
-        assertThrows(NullPointerException.class, () -> { Oblig1.merge(strings); });
+        assertThrows(NullPointerException.class, () -> { Oblig1.flett(strings); });
     }
     
     @Test
     void firstStringEmptyTest() {
         String[] strings = {"", "Example string"};
-        assertEquals("Example string", Oblig1.merge(strings));
+        assertEquals("Example string", Oblig1.flett(strings));
     }
     
     @Test
     void lastStringEmptyTest() {
         String[] strings = {"Example string", "AB", ""};
-        assertEquals("EAxBample string", Oblig1.merge(strings));
+        assertEquals("EAxBample string", Oblig1.flett(strings));
     }
     
     @Test
     void allStringsEmptyTest() {
         String[] strings = {"", "", ""};
-        assertEquals("", Oblig1.merge(strings));
+        assertEquals("", Oblig1.flett(strings));
     }
     
     @Test
     void firstStringLongerTest() {
         String[] strings = {"ABCDEFGHIJKL", "OPQR"};
-        assertEquals("AOBPCQDREFGHIJKL", Oblig1.merge(strings));
+        assertEquals("AOBPCQDREFGHIJKL", Oblig1.flett(strings));
     }
     
     @Test
     void secondStringLongerTest() {
         String[] strings = {"ABC", "OPQRSTUVWXYZ", "DEF"};
-        assertEquals("AODBPECQFRSTUVWXYZ", Oblig1.merge(strings));
+        assertEquals("AODBPECQFRSTUVWXYZ", Oblig1.flett(strings));
     }
     
     @Test
     void lastStringLongTest() {
         String[] strings = {"ABC", "DEF", "GHI", "OPQRST"};
-        assertEquals("ADGOBEHPCFIQRST", Oblig1.merge(strings));
+        assertEquals("ADGOBEHPCFIQRST", Oblig1.flett(strings));
     }
     
     @Test
     void allStringsEquallyLongTest() {
         String[] strings = {"ABCD", "DEFG", "OPQR", "STUV"};
-        assertEquals("ADOSBEPTCFQUDGRV", Oblig1.merge(strings));
+        assertEquals("ADOSBEPTCFQUDGRV", Oblig1.flett(strings));
     }
     
     @Test
     void stringsIncludesUnicodeTest() {
         String[] strings = {"AØBCDÅ", "ÆZYØAVWÅ", "æÆøØåÅ"};
-        assertEquals("AÆæØZÆBYøCØØDAåÅVÅWÅ", Oblig1.merge(strings));
+        assertEquals("AÆæØZÆBYøCØØDAåÅVÅWÅ", Oblig1.flett(strings));
     }
 
 }
