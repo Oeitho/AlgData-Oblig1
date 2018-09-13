@@ -242,6 +242,23 @@ public class Oblig1 {
         return new int[] {smallest, secondSmallest, thirdSmallest};
     }
     
+    public static boolean stringContains(String firstString, String secondString) {
+        if ("".equals(firstString))
+            return true;
+        if ("".equals(secondString))
+            return false;
+        
+        for (int i = 0; i < secondString.length(); i++) {
+            if (firstString.charAt(0) == secondString.charAt(i)) {
+                String newFirstString = firstString.substring(1);
+                String newSecondString = secondString.substring(0, i) + secondString.substring(i);
+                return stringContains(newFirstString, newSecondString);
+            }
+        }
+        
+        return false;
+    }
+    
     private static void quickSort(int[] arrayOfNumbers, int left, int right) {
         if (left >= right) {
             return;
