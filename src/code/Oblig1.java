@@ -10,35 +10,35 @@ public class Oblig1 {
     
     private Oblig1() {}
     
-  //public static int max(int[] arrayOfNumbers) {
-    public static int maks(int[] arrayOfNumbers) {
-        int arrayLength = arrayOfNumbers.length;
+  //public static int max(int[] numbersToBeSearchedThrough) {
+    public static int maks(int[] numbersToBeSearchedThrough) {
+        int arrayLength = numbersToBeSearchedThrough.length;
         int lastElementPosition = arrayLength - 1;
         
         if (arrayLength < 1)
             throw new NoSuchElementException("The provided array of integers is empty!");
         
         for (int i = 0; i < lastElementPosition; i++) {
-            if (arrayOfNumbers[i] > arrayOfNumbers[i + 1]) {
-                swap(arrayOfNumbers, i, i + 1);
+            if (numbersToBeSearchedThrough[i] > numbersToBeSearchedThrough[i + 1]) {
+                swap(numbersToBeSearchedThrough, i, i + 1);
             }
         }
         
-        return arrayOfNumbers[lastElementPosition];
+        return numbersToBeSearchedThrough[lastElementPosition];
     }
     
-  //public static int invertions(int[] arrayOfNumbers) {
-    public static int ombyttinger(int[] arrayOfNumbers) {
+  //public static int invertions(int[] numbersToBeInverted) {
+    public static int ombyttinger(int[] numbersToBeInverted) {
         int invertions = 0;
-        int arrayLength = arrayOfNumbers.length;
+        int arrayLength = numbersToBeInverted.length;
         int lastElementPosition = arrayLength - 1;
         
         if (arrayLength < 1)
             throw new NoSuchElementException("The provided array of integers is empty!");
         
         for (int i = 0; i < lastElementPosition; i++) {
-            if (arrayOfNumbers[i] > arrayOfNumbers[i + 1]) {
-                swap(arrayOfNumbers, i, i + 1);
+            if (numbersToBeInverted[i] > numbersToBeInverted[i + 1]) {
+                swap(numbersToBeInverted, i, i + 1);
                 invertions++;
             }
         }
@@ -46,17 +46,17 @@ public class Oblig1 {
         return invertions;
     }
     
-  //public static int amountOfUniqueSorted(int[] arrayOfNumbers) {
-    public static int antallUlikeSortert(int[] arrayOfNumbers) {
-        if (arrayOfNumbers.length < 1) 
+  //public static int amountOfUniqueSorted(int[] numbersToBeSearchedThrough) {
+    public static int antallUlikeSortert(int[] unsortedArrayOfNumbers) {
+        if (unsortedArrayOfNumbers.length < 1) 
             return 0;
         
-        if (ombyttinger(arrayOfNumbers) > 0)
+        if (ombyttinger(unsortedArrayOfNumbers) > 0)
             throw new IllegalStateException("Supplied array of integers have to be sorted");
         
         int amountOfUniqueNumbers = 1;
-        for (int i = 1; i < arrayOfNumbers.length; i++) {
-            if (arrayOfNumbers[i] > arrayOfNumbers[i - 1]) {
+        for (int i = 1; i < unsortedArrayOfNumbers.length; i++) {
+            if (unsortedArrayOfNumbers[i] > unsortedArrayOfNumbers[i - 1]) {
                 amountOfUniqueNumbers++;
             }
         }
@@ -64,13 +64,13 @@ public class Oblig1 {
         return amountOfUniqueNumbers;
     }
     
-  //public static int amountOfUniqueUnsorted(int[] arrayOfNumbers) {
-    public static int antallUlikeUsortert(int[] arrayOfNumbers) {
+  //public static int amountOfUniqueUnsorted(int[] numbersToBeSearchedThrough) {
+    public static int antallUlikeUsortert(int[] unsortedArrayOfNumbers) {
         int amountOfUniqueNumbers = 0;
-        for (int i = 0; i < arrayOfNumbers.length; i++) {
+        for (int i = 0; i < unsortedArrayOfNumbers.length; i++) {
             boolean unique = true;
             for (int j = 0; j < i; j++) {
-                if (arrayOfNumbers[i] == arrayOfNumbers[j]) {
+                if (unsortedArrayOfNumbers[i] == unsortedArrayOfNumbers[j]) {
                     unique = false;
                     break;
                 }
@@ -83,14 +83,14 @@ public class Oblig1 {
         return amountOfUniqueNumbers;
     }
     
-  //public static int[] partialSort(int[] arrayOfNumbers) {
-    public static int[] delsortering(int[] arrayOfNumbers) {
-        int indexOfFirstEvenNumber = arrayOfNumbers.length;
+  //public static int[] partialSort(int[] unsortedListOfNumbers) {
+    public static int[] delsortering(int[] unsortedListOfNumbers) {
+        int indexOfFirstEvenNumber = unsortedListOfNumbers.length;
         int arrayIterator = 0;
         
         while (indexOfFirstEvenNumber > arrayIterator) {
-            if (arrayOfNumbers[arrayIterator] % 2 == 0) {
-                swap(arrayOfNumbers, arrayIterator, --indexOfFirstEvenNumber);
+            if (unsortedListOfNumbers[arrayIterator] % 2 == 0) {
+                swap(unsortedListOfNumbers, arrayIterator, --indexOfFirstEvenNumber);
             } else {
                 arrayIterator++;
             }
@@ -98,35 +98,35 @@ public class Oblig1 {
         
         int indexOfLastOddNumber = indexOfFirstEvenNumber - 1;
         
-        quickSort(arrayOfNumbers, 0, indexOfLastOddNumber);
-        quickSort(arrayOfNumbers, indexOfFirstEvenNumber, arrayOfNumbers.length - 1);
+        quickSort(unsortedListOfNumbers, 0, indexOfLastOddNumber);
+        quickSort(unsortedListOfNumbers, indexOfFirstEvenNumber, unsortedListOfNumbers.length - 1);
  
-        return arrayOfNumbers;
+        return unsortedListOfNumbers;
     }
     
-  //public static char[] rotate(char[] arrayOfChars) {
-    public static char[] rotasjon(char[] arrayOfChars) {
-        if (arrayOfChars.length <= 1) {
-            return arrayOfChars;
+  //public static char[] rotate(char[] charsToBerotated) {
+    public static char[] rotasjon(char[] charsToBeRotated) {
+        if (charsToBeRotated.length <= 1) {
+            return charsToBeRotated;
         }
 
-        int indexOfLastValue = arrayOfChars.length - 1;
-        char lastValueInArray = arrayOfChars[indexOfLastValue];
+        int indexOfLastValue = charsToBeRotated.length - 1;
+        char lastValueInArray = charsToBeRotated[indexOfLastValue];
         
         for (int i = indexOfLastValue; i >= 1; i--) {
-            arrayOfChars[i] = arrayOfChars[i - 1];
+            charsToBeRotated[i] = charsToBeRotated[i - 1];
         }
         
-        arrayOfChars[0] = lastValueInArray;
+        charsToBeRotated[0] = lastValueInArray;
         
-        return arrayOfChars;
+        return charsToBeRotated;
     }
   
-  //public static char[] rotate(char[] arrayOfChars, int rotations) {
-    public static char[] rotasjon(char[] arrayOfChars, int rotations) {
-        int arrayLength = arrayOfChars.length;
+  //public static char[] rotate(char[] charsToBeRotated, int rotations) {
+    public static char[] rotasjon(char[] charsToBeRotated, int rotations) {
+        int arrayLength = charsToBeRotated.length;
         if (arrayLength <= 1) {
-            return arrayOfChars;
+            return charsToBeRotated;
         }
         
         rotations = Math.floorMod(rotations, arrayLength);
@@ -135,27 +135,27 @@ public class Oblig1 {
         char[] lastValuesOfArray = new char[rotations];
         
         for (int i = 0; i < rotations; i++) {
-            lastValuesOfArray[i] = arrayOfChars[indexOfLastValue - i];
+            lastValuesOfArray[i] = charsToBeRotated[indexOfLastValue - i];
         }
         
         int arrayIterator = indexOfLastValue;
         
         while (arrayIterator >= rotations) {
-            arrayOfChars[arrayIterator] = arrayOfChars[arrayIterator - rotations];
+            charsToBeRotated[arrayIterator] = charsToBeRotated[arrayIterator - rotations];
             arrayIterator--;
         }
         
         while (arrayIterator >= 0) {
-            arrayOfChars[arrayIterator] = lastValuesOfArray[rotations - (arrayIterator + 1)];
+            charsToBeRotated[arrayIterator] = lastValuesOfArray[rotations - (arrayIterator + 1)];
             arrayIterator--;
         }
         
-        return arrayOfChars;
+        return charsToBeRotated;
     }
     
-  //public static String merge(String firstString, String secondString) {
-    public static String flett(String firstString, String secondString) {
-        int totalLength = firstString.length() + secondString.length();
+  //public static String merge(String firstStringToBeMerged, String secondStringToBeMerged) {
+    public static String flett(String firstStringToBeMerged, String secondStringToBeMerged) {
+        int totalLength = firstStringToBeMerged.length() + secondStringToBeMerged.length();
         
         char[] result = new char[totalLength];
         int firstStringIndexIterator = 0;
@@ -163,33 +163,33 @@ public class Oblig1 {
         int indexIterator = 0;
         
         while (indexIterator < totalLength) {
-            if (firstStringIndexIterator < firstString.length()) {
-                result[indexIterator++] = firstString.charAt(firstStringIndexIterator++);
+            if (firstStringIndexIterator < firstStringToBeMerged.length()) {
+                result[indexIterator++] = firstStringToBeMerged.charAt(firstStringIndexIterator++);
             }
-            if (secondStringIndexIterator < secondString.length()) {
-                result[indexIterator++] = secondString.charAt(secondStringIndexIterator++);
+            if (secondStringIndexIterator < secondStringToBeMerged.length()) {
+                result[indexIterator++] = secondStringToBeMerged.charAt(secondStringIndexIterator++);
             }
         }
         
         return new String(result);
     }
     
-  //public static String merge(String... strings) {
-    public static String flett(String... strings) {
+  //public static String merge(String... stringsToBeMerged) {
+    public static String flett(String... stringsToBeMerged) {
         int totalArrayLength = 0;
         
-        for (String string: strings) {
-            totalArrayLength += string.length();
+        for (String stringToBeMerged: stringsToBeMerged) {
+            totalArrayLength += stringToBeMerged.length();
         }
         
         char[] result = new char[totalArrayLength];
-        int[] stringIndexIterators = new int[strings.length];
+        int[] stringIndexIterators = new int[stringsToBeMerged.length];
         int indexIterator = 0;
         
         while (indexIterator < totalArrayLength) {
-            for (int i = 0; i < strings.length; i++) {
-                if (stringIndexIterators[i] < strings[i].length()) {
-                    result[indexIterator++] = strings[i].charAt(stringIndexIterators[i]++);
+            for (int i = 0; i < stringsToBeMerged.length; i++) {
+                if (stringIndexIterators[i] < stringsToBeMerged[i].length()) {
+                    result[indexIterator++] = stringsToBeMerged[i].charAt(stringIndexIterators[i]++);
                 }
             }
         }
@@ -197,16 +197,16 @@ public class Oblig1 {
         return new String(result);
     }
     
-  //public static int[] indexSort(int[] arrayOfNumbers) {
-    public static int[] indekssortering(int[] arrayOfNumbers) {
-        int arrayLength = arrayOfNumbers.length;
+  //public static int[] indexSort(int[] numbersToBeSorted) {
+    public static int[] indekssortering(int[] numbersToBeSorted) {
+        int arrayLength = numbersToBeSorted.length;
         int lastElementPosition = arrayLength - 1;
         
         if (arrayLength < 1)
             return new int[] {};
         
-        int[] copyOfInputArray = Arrays.copyOf(arrayOfNumbers, arrayLength);
-        int[] sortedIndeces = new int[arrayOfNumbers.length];
+        int[] copyOfInputArray = Arrays.copyOf(numbersToBeSorted, arrayLength);
+        int[] sortedIndeces = new int[numbersToBeSorted.length];
         
         for (int i = 0; i < arrayLength; i++) {
             sortedIndeces[i] = i;
@@ -256,7 +256,7 @@ public class Oblig1 {
         return new int[] {smallest, secondSmallest, thirdSmallest};
     }
     
-  //public static boolean stringContains(String firstString, String secondString) {
+  //public static boolean stringContains(String needle, String hayStack) {
     public static boolean inneholdt(String needle, String hayStack) {
         if ("".equals(needle))
             return true;
@@ -283,27 +283,27 @@ public class Oblig1 {
         return true;
     }
 
-    private static void quickSort(int[] arrayOfNumbers, int left, int right) {
+    private static void quickSort(int[] numbersToBeSearched, int left, int right) {
         if (left >= right) {
             return;
         }
         
-        int indexOfPivotAfterPartition = partition(arrayOfNumbers, left, right);
-        quickSort(arrayOfNumbers, left, indexOfPivotAfterPartition - 1);
-        quickSort(arrayOfNumbers, indexOfPivotAfterPartition + 1, right);
+        int indexOfPivotAfterPartition = partition(numbersToBeSearched, left, right);
+        quickSort(numbersToBeSearched, left, indexOfPivotAfterPartition - 1);
+        quickSort(numbersToBeSearched, indexOfPivotAfterPartition + 1, right);
     }
     
-    private static int partition(int[] arrayOfNumbers, int left, int right) {
-        int pivot = arrayOfNumbers[right];
+    private static int partition(int[] numbersToBePartitioned, int left, int right) {
+        int pivot = numbersToBePartitioned[right];
         
         for (int i = left; i < right; i++) {
-            if (arrayOfNumbers[i] < pivot) {
-                swap(arrayOfNumbers, left, i);
+            if (numbersToBePartitioned[i] < pivot) {
+                swap(numbersToBePartitioned, left, i);
                 left++;
             }
         }
         
-        swap(arrayOfNumbers, left, right);
+        swap(numbersToBePartitioned, left, right);
         return left;
     }
     
